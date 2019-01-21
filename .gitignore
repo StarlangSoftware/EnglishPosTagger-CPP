@@ -1,0 +1,16 @@
+.idea/PosTagger.iml
+cmake-build-debug/libPosTagger.a
+cmake-build-debug/PosTagger.cbp
+cmake-build-debug/CMakeFiles/PosTagger.dir/build.make
+cmake-build-debug/CMakeFiles/PosTagger.dir/cmake_clean.cmake
+cmake-build-debug/CMakeFiles/PosTagger.dir/cmake_clean_target.cmake
+cmake-build-debug/CMakeFiles/PosTagger.dir/CXX.includecache
+cmake-build-debug/CMakeFiles/PosTagger.dir/depend.internal
+cmake-build-debug/CMakeFiles/PosTagger.dir/depend.make
+cmake-build-debug/CMakeFiles/PosTagger.dir/DependInfo.cmake
+cmake-build-debug/CMakeFiles/PosTagger.dir/DummyPosTagger.cpp.o
+cmake-build-debug/CMakeFiles/PosTagger.dir/flags.make
+cmake-build-debug/CMakeFiles/PosTagger.dir/link.txt
+cmake-build-debug/CMakeFiles/PosTagger.dir/PosTaggedCorpus.cpp.o
+cmake-build-debug/CMakeFiles/PosTagger.dir/PosTaggedWord.cpp.o
+cmake-build-debug/CMakeFiles/PosTagger.dir/progress.make
