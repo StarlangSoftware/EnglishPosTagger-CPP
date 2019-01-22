@@ -15,7 +15,7 @@ public:
     PosTaggedCorpus();
     PosTaggedCorpus emptyCopy();
     PosTaggedCorpus(string fileName);
-    vector<string> getTagList();
+    unordered_set<string> getTagList();
 };
 
 

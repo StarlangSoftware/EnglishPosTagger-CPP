@@ -10,7 +10,5 @@
 class PosTagger{
     virtual void train(PosTaggedCorpus corpus) = 0;
     virtual Sentence posTag(Sentence sentence) = 0;
-    virtual void saveModel() = 0;
-    virtual void loadModel() = 0;
 };
 #endif //POSTAGGER_POSTAGGER_H

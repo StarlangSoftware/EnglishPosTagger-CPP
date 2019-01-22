@@ -2,6 +2,7 @@
 // Created by Olcay Taner Yıldız on 21.01.2019.
 //
 
+#include <fstream>
 #include "DummyPosTagger.h"
 #include "PosTaggedWord.h"
 

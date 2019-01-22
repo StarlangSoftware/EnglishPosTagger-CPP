@@ -5,5 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(include)
 link_directories(library)
 
-add_library(PosTagger PosTagger.h PosTaggedWord.cpp PosTaggedWord.h PosTaggedCorpus.cpp PosTaggedCorpus.h DummyPosTagger.cpp DummyPosTagger.h)
-target_link_libraries(PosTagger Corpus Dictionary)
+add_library(PosTagger PosTagger.h PosTaggedWord.cpp PosTaggedWord.h PosTaggedCorpus.cpp PosTaggedCorpus.h DummyPosTagger.cpp DummyPosTagger.h NaivePosTagger.cpp NaivePosTagger.h HmmPosTagger.cpp HmmPosTagger.h)
+target_link_libraries(PosTagger Corpus Dictionary Math)
+
+add_executable(TestPosTag PosTagger.h PosTaggedWord.cpp PosTaggedWord.h PosTaggedCorpus.cpp PosTaggedCorpus.h DummyPosTagger.cpp DummyPosTagger.h NaivePosTagger.cpp NaivePosTagger.h HmmPosTagger.cpp HmmPosTagger.h TestPosTag.cpp)
+target_link_libraries(TestPosTag Corpus Dictionary Math)

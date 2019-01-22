@@ -54,10 +54,10 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
     }
 }
 
-vector<string> PosTaggedCorpus::getTagList() {
-    vector<string> result;
+unordered_set<string> PosTaggedCorpus::getTagList() {
+    unordered_set<string> result;
     for (auto item = tagList.begin(); item != tagList.end(); item++) {
-        result.push_back(item->first);
+        result.emplace(item->first);
     }
     return result;
 }
