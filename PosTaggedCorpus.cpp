@@ -38,7 +38,8 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
                     name = word.substr(0, word.find_last_of('/'));
                     tag = word.substr(word.find_last_of('/') + 1);
                     tagList.put(tag);
-                    newSentence->addWord(new PosTaggedWord(name, tag));
+                    PosTaggedWord* newWord = new PosTaggedWord(name, tag);
+                    newSentence->addWord(newWord);
                     if (tag == "."){
                         addSentence(newSentence);
                         newSentence = new Sentence();
@@ -56,8 +57,8 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
 
 unordered_set<string> PosTaggedCorpus::getTagList() {
     unordered_set<string> result;
-    for (auto item = tagList.begin(); item != tagList.end(); item++) {
-        result.emplace(item->first);
+    for (auto &item : tagList) {
+        result.emplace(item.first);
     }
     return result;
 }

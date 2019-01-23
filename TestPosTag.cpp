@@ -13,7 +13,8 @@ int main(){
     posTagger.train(posTaggedCorpus);
     int correct = 0, incorrect = 0;
     for (int i = 0; i < posTaggedCorpus.sentenceCount(); i++){
-        Sentence taggedSentence = posTagger.posTag(*posTaggedCorpus.getSentence(i));
+        Sentence* currentSentence = posTaggedCorpus.getSentence(i);
+        Sentence taggedSentence = posTagger.posTag(*currentSentence);
         for (int j = 0; j < taggedSentence.wordCount(); j++){
             if (((PosTaggedWord*) posTaggedCorpus.getSentence(i)->getWord(j))->getTag() == ((PosTaggedWord*)taggedSentence.getWord(j))->getTag()){
                 correct++;
