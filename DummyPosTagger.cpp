@@ -7,15 +7,8 @@
 #include "PosTaggedWord.h"
 
 void DummyPosTagger::train(PosTaggedCorpus corpus) {
-    unordered_set<string> possibleTags;
-    for (int i = 0; i < corpus.sentenceCount(); i++){
-        Sentence* s = corpus.getSentence(i);
-        for (int j = 0; j < s->wordCount(); j++){
-            PosTaggedWord* word = dynamic_cast<PosTaggedWord*> (corpus.getSentence(i)->getWord(j));
-            possibleTags.emplace(word->getTag());
-        }
-    }
-    for (const auto& tag : possibleTags){
+    unordered_set<string> corpusTagList = corpus.getTagList();
+    for (const auto& tag : corpusTagList){
         tagList.emplace_back(tag);
     }
 }

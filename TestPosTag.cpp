@@ -6,9 +6,11 @@
 #include "PosTagger.h"
 #include "PosTaggedWord.h"
 #include "DummyPosTagger.h"
+#include "NaivePosTagger.h"
+#include "HmmPosTagger.h"
 
 int main(){
-    DummyPosTagger posTagger = DummyPosTagger();
+    auto posTagger = NaivePosTagger();
     PosTaggedCorpus posTaggedCorpus = PosTaggedCorpus("brown.txt");
     posTagger.train(posTaggedCorpus);
     int correct = 0, incorrect = 0;
