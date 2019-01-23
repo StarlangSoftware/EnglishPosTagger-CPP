@@ -14,7 +14,7 @@ private:
     Hmm1<string, Word> hmm;
 public:
     void train(PosTaggedCorpus& corpus);
-    Sentence posTag(Sentence sentence);
+    Sentence posTag(Sentence& sentence);
 };
 
 

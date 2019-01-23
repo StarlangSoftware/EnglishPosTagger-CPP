@@ -13,7 +13,7 @@ void DummyPosTagger::train(PosTaggedCorpus& corpus) {
     }
 }
 
-Sentence DummyPosTagger::posTag(Sentence sentence) {
+Sentence DummyPosTagger::posTag(Sentence& sentence) {
     srand(0);
     Sentence result = Sentence();
     for (int i = 0; i < sentence.wordCount(); i++){

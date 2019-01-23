@@ -13,7 +13,7 @@ private:
     vector<string> tagList;
 public:
     void train(PosTaggedCorpus& corpus);
-    Sentence posTag(Sentence sentence);
+    Sentence posTag(Sentence& sentence);
 };
 
 

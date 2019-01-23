@@ -19,7 +19,7 @@ void HmmPosTagger::train(PosTaggedCorpus& corpus) {
     hmm = Hmm1<string, Word>(corpus.getTagList(), sentenceCount, emittedSymbols, allWords);
 }
 
-Sentence HmmPosTagger::posTag(Sentence sentence) {
+Sentence HmmPosTagger::posTag(Sentence& sentence) {
     Sentence result;
     vector<string> tagList = hmm.viterbi(sentence.getWordList());
     for (int i = 0; i < sentence.wordCount(); i++){

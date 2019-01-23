@@ -25,7 +25,7 @@ void NaivePosTagger::train(PosTaggedCorpus& corpus) {
     }
 }
 
-Sentence NaivePosTagger::posTag(Sentence sentence) {
+Sentence NaivePosTagger::posTag(Sentence& sentence) {
     Sentence result;
     for (int i = 0; i < sentence.wordCount(); i++){
         result.addWord(new PosTaggedWord(sentence.getWord(i)->getName(), maxMap.find(sentence.getWord(i)->getName())->second));
