@@ -7,8 +7,9 @@
 #include <Word.h>
 #include "Hmm1.h"
 #include "PosTaggedCorpus.h"
+#include "PosTagger.h"
 
-class HmmPosTagger {
+class HmmPosTagger : public PosTagger {
 private:
     Hmm1<string, Word> hmm;
 public:

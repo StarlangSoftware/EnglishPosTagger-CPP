@@ -7,14 +7,16 @@
 #include "Hmm1.h"
 
 void HmmPosTagger::train(PosTaggedCorpus corpus) {
-    vector<string>* emittedSymbols = new vector<string>[corpus.sentenceCount()];
-    for (int i = 0; i < corpus.sentenceCount(); i++){
+    int sentenceCount = corpus.sentenceCount();
+    vector<string>* emittedSymbols = new vector<string>[sentenceCount];
+    for (int i = 0; i < sentenceCount; i++){
         for (int j = 0; j < corpus.getSentence(i)->wordCount(); j++){
             PosTaggedWord* word = dynamic_cast<PosTaggedWord*> (corpus.getSentence(i)->getWord(j));
             emittedSymbols[i].push_back(word->getTag());
         }
     }
-    hmm = Hmm1<string, Word>(corpus.getTagList(), corpus.sentenceCount(), emittedSymbols, corpus.getAllWordsAsArray());
+    vector<Word>* allWords = corpus.getAllWordsAsArray();
+    hmm = Hmm1<string, Word>(corpus.getTagList(), sentenceCount, emittedSymbols, allWords);
 }
 
 Sentence HmmPosTagger::posTag(Sentence sentence) {

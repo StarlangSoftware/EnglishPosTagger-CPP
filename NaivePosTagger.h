@@ -7,10 +7,11 @@
 
 #include <map>
 #include "PosTaggedCorpus.h"
+#include "PosTagger.h"
 
 using namespace std;
 
-class NaivePosTagger {
+class NaivePosTagger : public PosTagger {
 private:
     map<string, string> maxMap;
 public:
