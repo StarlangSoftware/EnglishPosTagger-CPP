@@ -12,7 +12,7 @@ class DummyPosTagger : public PosTagger {
 private:
     vector<string> tagList;
 public:
-    void train(PosTaggedCorpus corpus);
+    void train(PosTaggedCorpus& corpus);
     Sentence posTag(Sentence sentence);
 };
 

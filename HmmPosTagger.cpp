@@ -6,7 +6,7 @@
 #include "PosTaggedWord.h"
 #include "Hmm1.h"
 
-void HmmPosTagger::train(PosTaggedCorpus corpus) {
+void HmmPosTagger::train(PosTaggedCorpus& corpus) {
     int sentenceCount = corpus.sentenceCount();
     vector<string>* emittedSymbols = new vector<string>[sentenceCount];
     for (int i = 0; i < sentenceCount; i++){

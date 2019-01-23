@@ -8,7 +8,7 @@
 #include "PosTaggedCorpus.h"
 
 class PosTagger{
-    virtual void train(PosTaggedCorpus corpus) = 0;
+    virtual void train(PosTaggedCorpus& corpus) = 0;
     virtual Sentence posTag(Sentence sentence) = 0;
 };
 #endif //POSTAGGER_POSTAGGER_H

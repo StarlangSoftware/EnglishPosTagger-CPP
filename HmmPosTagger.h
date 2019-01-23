@@ -13,7 +13,7 @@ class HmmPosTagger : public PosTagger {
 private:
     Hmm1<string, Word> hmm;
 public:
-    void train(PosTaggedCorpus corpus);
+    void train(PosTaggedCorpus& corpus);
     Sentence posTag(Sentence sentence);
 };
 

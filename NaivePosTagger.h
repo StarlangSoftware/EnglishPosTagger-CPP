@@ -15,7 +15,7 @@ class NaivePosTagger : public PosTagger {
 private:
     map<string, string> maxMap;
 public:
-    void train(PosTaggedCorpus corpus);
+    void train(PosTaggedCorpus& corpus);
     Sentence posTag(Sentence sentence);
 };
 

@@ -6,7 +6,7 @@
 #include "DummyPosTagger.h"
 #include "PosTaggedWord.h"
 
-void DummyPosTagger::train(PosTaggedCorpus corpus) {
+void DummyPosTagger::train(PosTaggedCorpus& corpus) {
     unordered_set<string> corpusTagList = corpus.getTagList();
     for (const auto& tag : corpusTagList){
         tagList.emplace_back(tag);

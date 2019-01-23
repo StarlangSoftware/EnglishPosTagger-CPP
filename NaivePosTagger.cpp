@@ -5,7 +5,7 @@
 #include "NaivePosTagger.h"
 #include "PosTaggedWord.h"
 
-void NaivePosTagger::train(PosTaggedCorpus corpus) {
+void NaivePosTagger::train(PosTaggedCorpus& corpus) {
     map<string, CounterHashMap<string>> map;
     for (int i = 0; i < corpus.sentenceCount(); i++){
         Sentence* s = corpus.getSentence(i);
