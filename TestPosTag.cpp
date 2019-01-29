@@ -10,7 +10,7 @@
 #include "HmmPosTagger.h"
 
 int main(){
-    HmmPosTagger posTagger = HmmPosTagger();
+    NaivePosTagger posTagger = NaivePosTagger();
     PosTaggedCorpus posTaggedCorpus = PosTaggedCorpus("brown.txt");
     posTagger.train(posTaggedCorpus);
     int correct = 0, incorrect = 0;

@@ -7,6 +7,7 @@
 #include <sstream>
 #include "PosTaggedCorpus.h"
 #include "PosTaggedWord.h"
+#include "Word.h"
 
 PosTaggedCorpus::PosTaggedCorpus() {
 }
@@ -23,15 +24,7 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
     this->fileName = move(fileName);
     while (inputStream.good()){
         getline(inputStream, line);
-        size_t current, previous = 0;
-        vector<string> tokens;
-        current = line.find_first_of(" \t");
-        while (current != string::npos) {
-            tokens.push_back(line.substr(previous, current - previous));
-            previous = current + 1;
-            current = line.find_first_of(" \t", previous);
-        }
-        tokens.push_back(line.substr(previous, current - previous));
+        vector<string> tokens = Word::split(line, " \t");
         for (const string& word : tokens){
             if (!word.empty()){
                 if (word.find_first_of('/') != -1){
