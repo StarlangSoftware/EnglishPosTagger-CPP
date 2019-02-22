@@ -8,10 +8,10 @@
 
 void HmmPosTagger::train(PosTaggedCorpus& corpus) {
     int sentenceCount = corpus.sentenceCount();
-    vector<string>* emittedSymbols = new vector<string>[sentenceCount];
+    auto * emittedSymbols = new vector<string>[sentenceCount];
     for (int i = 0; i < sentenceCount; i++){
         for (int j = 0; j < corpus.getSentence(i)->wordCount(); j++){
-            PosTaggedWord* word = dynamic_cast<PosTaggedWord*> (corpus.getSentence(i)->getWord(j));
+            auto * word = (PosTaggedWord*) (corpus.getSentence(i)->getWord(j));
             emittedSymbols[i].push_back(word->getTag());
         }
     }

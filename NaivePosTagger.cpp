@@ -10,7 +10,7 @@ void NaivePosTagger::train(PosTaggedCorpus& corpus) {
     for (int i = 0; i < corpus.sentenceCount(); i++){
         Sentence* s = corpus.getSentence(i);
         for (int j = 0; j < s->wordCount(); j++){
-            PosTaggedWord* word = dynamic_cast<PosTaggedWord*> (corpus.getSentence(i)->getWord(j));
+            auto word = (PosTaggedWord*) (corpus.getSentence(i)->getWord(j));
             if (map.find(word->getName()) != map.end()){
                 map.find(word->getName())->second.put(word->getTag());
             } else {
