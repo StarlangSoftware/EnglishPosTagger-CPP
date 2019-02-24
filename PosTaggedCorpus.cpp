@@ -17,7 +17,7 @@ PosTaggedCorpus PosTaggedCorpus::emptyCopy() {
 }
 
 PosTaggedCorpus::PosTaggedCorpus(string fileName) {
-    string line, name, tag;
+    string line, name, tag, shortTag;
     Sentence* newSentence = new Sentence();
     ifstream inputStream;
     inputStream.open(fileName, ifstream::in);
@@ -30,8 +30,13 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
                 if (word.find_first_of('/') != -1){
                     name = word.substr(0, word.find_last_of('/'));
                     tag = word.substr(word.find_last_of('/') + 1);
-                    tagList.put(tag);
-                    PosTaggedWord* newWord = new PosTaggedWord(name, tag);
+                    if (tag.find_first_of("+-") != -1){
+                        shortTag = tag.substr(0, tag.find_first_of("+-"));
+                    } else {
+                        shortTag = tag;
+                    }
+                    tagList.put(shortTag);
+                    PosTaggedWord* newWord = new PosTaggedWord(name, shortTag);
                     newSentence->addWord(newWord);
                     if (tag == "."){
                         addSentence(newSentence);

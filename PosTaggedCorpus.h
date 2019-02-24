@@ -14,7 +14,7 @@ private:
 public:
     PosTaggedCorpus();
     PosTaggedCorpus emptyCopy();
-    PosTaggedCorpus(string fileName);
+    explicit PosTaggedCorpus(string fileName);
     unordered_set<string> getTagList();
 };
 

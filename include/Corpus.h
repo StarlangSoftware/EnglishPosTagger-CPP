@@ -22,7 +22,7 @@ public:
     Corpus();
     ~Corpus();
     Corpus emptyCopy();
-    Corpus(string fileName);
+    explicit Corpus(string fileName);
     Corpus(string fileName, SentenceSplitter sentenceSplitter);
     Corpus(string fileName, LanguageChecker* languageChecker);
     void combine(Corpus corpus);
@@ -38,7 +38,6 @@ public:
     Sentence* getSentence(int index);
     int maxSentenceLength();
     vector<vector<Word*>> getAllWordsAsVector();
-    vector<Word>* getAllWordsAsArray();
     void shuffleSentences(int seed);
     Corpus getTrainCorpus(int foldNo, int foldCount);
     Corpus getTestCorpus(int foldNo, int foldCount);

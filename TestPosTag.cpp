@@ -24,6 +24,9 @@ int main(){
                 incorrect++;
             }
         }
+        if (i % 100 == 0){
+            cout << "Tested " << i << " sentences\n";
+        }
     }
     cout << "Accuracy: ";
     cout << 100 * correct / (correct + incorrect + 0.0);

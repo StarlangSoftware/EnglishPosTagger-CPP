@@ -4,8 +4,8 @@
 
 #include "PosTaggedWord.h"
 
-PosTaggedWord::PosTaggedWord(string name, string tag) : Word(name){
-    this->tag = tag;
+PosTaggedWord::PosTaggedWord(string name, string tag) : Word(move(name)){
+    this->tag = move(tag);
 }
 
 string PosTaggedWord::getTag() {
