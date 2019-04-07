@@ -6,6 +6,7 @@
 #define DICTIONARY_WORD_H
 
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Word {
@@ -32,6 +33,14 @@ public:
     static bool isTime(string surfaceForm);
     static Word* toWordArray(string* sourceArray, int size);
     vector<Word> toCharacters();
+    friend istream& operator>> (istream& is, Word& word){
+        is >> word.name;
+        return is;
+    }
+    friend ostream& operator<<(ostream& os, const Word& word){
+        os << word.getName();
+        return os;
+    }
     bool operator==(const Word &anotherWord) const{
         return (name == anotherWord.name);
     }

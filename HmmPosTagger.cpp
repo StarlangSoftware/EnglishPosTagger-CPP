@@ -9,26 +9,20 @@
 void HmmPosTagger::train(PosTaggedCorpus& corpus) {
     int sentenceCount = corpus.sentenceCount();
     auto* emittedSymbols = new vector<string>[sentenceCount];
-    auto* allWords = new vector<string>[sentenceCount];
+    auto* allWords = new vector<Word>[sentenceCount];
     for (int i = 0; i < sentenceCount; i++){
         for (int j = 0; j < corpus.getSentence(i)->wordCount(); j++){
             auto * word = (PosTaggedWord*) (corpus.getSentence(i)->getWord(j));
-            allWords[i].emplace_back(word->getName());
+            allWords[i].emplace_back(Word(word->getName()));
             emittedSymbols[i].emplace_back(word->getTag());
         }
     }
-    hmm = Hmm1<string, string>(corpus.getTagList(), sentenceCount, emittedSymbols, allWords);
+    hmm = Hmm1<string, Word>(corpus.getTagList(), sentenceCount, emittedSymbols, allWords);
 }
 
 Sentence HmmPosTagger::posTag(Sentence& sentence) {
     Sentence result;
-    vector<Word> wordList = sentence.getWordList();
-    vector<string> stringList;
-    stringList.reserve(wordList.size());
-    for (const Word &word : wordList){
-        stringList.emplace_back(word.getName());
-    }
-    vector<string> tagList = hmm.viterbi(stringList);
+    vector<string> tagList = hmm.viterbi(sentence.getWordList());
     for (int i = 0; i < sentence.wordCount(); i++){
         result.addWord(new PosTaggedWord(sentence.getWord(i)->getName(), tagList.at(i)));
     }
@@ -40,7 +34,7 @@ void HmmPosTagger::serialize(ostream &outputFile) {
 }
 
 HmmPosTagger::HmmPosTagger(ifstream &inputFile) {
-    hmm = Hmm1<string, string>(inputFile);
+    hmm = Hmm1<string, Word>(inputFile);
 }
 
 void HmmPosTagger::saveModel() {

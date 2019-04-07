@@ -11,7 +11,7 @@
 
 class HmmPosTagger : public PosTagger {
 private:
-    Hmm1<string, string> hmm;
+    Hmm1<string, Word> hmm;
 public:
     HmmPosTagger() = default;
     explicit HmmPosTagger(ifstream& inputFile);
