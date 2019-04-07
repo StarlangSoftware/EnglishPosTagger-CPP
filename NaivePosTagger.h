@@ -15,8 +15,12 @@ class NaivePosTagger : public PosTagger {
 private:
     map<string, string> maxMap;
 public:
+    NaivePosTagger() = default;
+    explicit NaivePosTagger(ifstream& inputFile);
     void train(PosTaggedCorpus& corpus) override;
     Sentence posTag(Sentence& sentence) override;
+    void serialize(ostream& outputFile) override;
+    void saveModel() override;
 };
 
 

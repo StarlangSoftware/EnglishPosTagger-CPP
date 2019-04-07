@@ -11,10 +11,14 @@
 
 class HmmPosTagger : public PosTagger {
 private:
-    Hmm1<string, Word> hmm;
+    Hmm1<string, string> hmm;
 public:
+    HmmPosTagger() = default;
+    explicit HmmPosTagger(ifstream& inputFile);
     void train(PosTaggedCorpus& corpus) override;
     Sentence posTag(Sentence& sentence) override;
+    void serialize(ostream& outputFile) override;
+    void saveModel() override;
 };
 
 

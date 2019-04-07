@@ -21,3 +21,28 @@ Sentence DummyPosTagger::posTag(Sentence& sentence) {
     }
     return result;
 }
+
+void DummyPosTagger::serialize(ostream &outputFile) {
+    outputFile << tagList.size() << "\n";
+    for (const string &tag : tagList){
+        outputFile << tag << "\n";
+    }
+}
+
+DummyPosTagger::DummyPosTagger(ifstream &inputFile) {
+    int size;
+    string tag;
+    inputFile >> size;
+    tagList.reserve(size);
+    for (int i = 0; i < size; i++){
+        inputFile >> tag;
+        tagList.emplace_back(tag);
+    }
+}
+
+void DummyPosTagger::saveModel() {
+    ofstream outputFile;
+    outputFile.open("dummyPosTagger.bin", ofstream::out);
+    serialize(outputFile);
+    outputFile.close();
+}

@@ -2,6 +2,8 @@
 // Created by olcay on 22/01/2019.
 //
 
+#include <fstream>
+#include <iostream>
 #include "NaivePosTagger.h"
 #include "PosTaggedWord.h"
 
@@ -20,8 +22,8 @@ void NaivePosTagger::train(PosTaggedCorpus& corpus) {
             }
         }
     }
-    for (auto item = map.begin(); item != map.end(); item++){
-        maxMap.emplace(item->first, item->second.max());
+    for (auto &item : map) {
+        maxMap.emplace(item.first, item.second.max());
     }
 }
 
@@ -31,4 +33,32 @@ Sentence NaivePosTagger::posTag(Sentence& sentence) {
         result.addWord(new PosTaggedWord(sentence.getWord(i)->getName(), maxMap.find(sentence.getWord(i)->getName())->second));
     }
     return result;
+}
+
+void NaivePosTagger::serialize(ostream &outputFile) {
+    outputFile << maxMap.size() << "\n";
+    for (auto& iterator : maxMap){
+        if (!iterator.first.empty() && !iterator.second.empty()){
+            outputFile << iterator.first << "\n";
+            outputFile << iterator.second << "\n";
+        }
+    }
+}
+
+NaivePosTagger::NaivePosTagger(ifstream &inputFile) {
+    int size;
+    string name, tag;
+    inputFile >> size;
+    for (int i = 0; i < size; i++){
+        inputFile >> name;
+        inputFile >> tag;
+        maxMap.insert_or_assign(name, tag);
+    }
+}
+
+void NaivePosTagger::saveModel() {
+    ofstream outputFile;
+    outputFile.open("naivePosTagger.bin", ofstream::out);
+    serialize(outputFile);
+    outputFile.close();
 }
