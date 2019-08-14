@@ -6,6 +6,11 @@
 #include "DummyPosTagger.h"
 #include "PosTaggedWord.h"
 
+/**
+ * Train method for the Dummy pos tagger. The algorithm gets all possible tag list.
+ *
+ * @param corpus Traning data for the tagger.
+ */
 void DummyPosTagger::train(PosTaggedCorpus& corpus) {
     unordered_set<string> corpusTagList = corpus.getTagList();
     for (const auto& tag : corpusTagList){
@@ -13,6 +18,13 @@ void DummyPosTagger::train(PosTaggedCorpus& corpus) {
     }
 }
 
+/**
+ * Test method for the Dummy pos tagger. For each word, the method chooses randomly a tag from all possible
+ * tag list.
+ *
+ * @param sentence Sentence to be tagged.
+ * @return Annotated (tagged) sentence.
+ */
 Sentence DummyPosTagger::posTag(Sentence& sentence) {
     srand(0);
     Sentence result = Sentence();
@@ -40,6 +52,9 @@ DummyPosTagger::DummyPosTagger(ifstream &inputFile) {
     }
 }
 
+/**
+ * The method saves the pos tagger model.
+ */
 void DummyPosTagger::saveModel() {
     ofstream outputFile;
     outputFile.open("dummyPosTagger.bin", ofstream::out);

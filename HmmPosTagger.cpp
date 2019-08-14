@@ -6,6 +6,12 @@
 #include "PosTaggedWord.h"
 #include "Hmm1.h"
 
+/**
+ * Train method for the Hmm pos tagger. The algorithm trains an Hmm from the corpus, where corpus constitutes
+ * as an observation array.
+ *
+ * @param corpus Traning data for the tagger.
+ */
 void HmmPosTagger::train(PosTaggedCorpus& corpus) {
     int sentenceCount = corpus.sentenceCount();
     auto* emittedSymbols = new vector<string>[sentenceCount];
@@ -20,6 +26,13 @@ void HmmPosTagger::train(PosTaggedCorpus& corpus) {
     hmm = Hmm1<string, Word>(corpus.getTagList(), sentenceCount, emittedSymbols, allWords);
 }
 
+/**
+ * Test method for the Hmm pos tagger. For each sentence, the method uses the viterbi algorithm to produce the
+ * most possible state sequence for the given sentence.
+ *
+ * @param sentence Sentence to be tagged.
+ * @return Annotated (tagged) sentence.
+ */
 Sentence HmmPosTagger::posTag(Sentence& sentence) {
     Sentence result;
     vector<string> tagList = hmm.viterbi(sentence.getWordList());
@@ -37,6 +50,9 @@ HmmPosTagger::HmmPosTagger(ifstream &inputFile) {
     hmm = Hmm1<string, Word>(inputFile);
 }
 
+/**
+ * The method saves the pos tagger model.
+ */
 void HmmPosTagger::saveModel() {
     ofstream outputFile;
     outputFile.open("hmmPosTagger.bin", ofstream::out);

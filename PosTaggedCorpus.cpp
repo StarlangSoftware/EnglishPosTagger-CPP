@@ -9,13 +9,28 @@
 #include "PosTaggedWord.h"
 #include "Word.h"
 
+/**
+ * A constructor of {@link PosTaggedCorpus} which initializes the sentences of the corpus, the word list of
+ * the corpus, and all possible tags.
+ */
 PosTaggedCorpus::PosTaggedCorpus() {
 }
 
+/**
+ * A clone method for the {@link PosTaggedCorpus} class.
+ *
+ * @return A copy of the current {@link PosTaggedCorpus} class.
+ */
 PosTaggedCorpus PosTaggedCorpus::emptyCopy() {
     return PosTaggedCorpus();
 }
 
+/**
+ * Another constructor of {@link PosTaggedCorpus} which takes a fileName of the corpus as an input, reads the
+ * corpus from that file.
+ *
+ * @param fileName Name of the corpus file.
+ */
 PosTaggedCorpus::PosTaggedCorpus(string fileName) {
     string line, name, tag, shortTag;
     Sentence* newSentence = new Sentence();
@@ -53,6 +68,11 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
     }
 }
 
+/**
+ * getTagList returns all possible tags as a set.
+ *
+ * @return Set of all possible tags.
+ */
 unordered_set<string> PosTaggedCorpus::getTagList() {
     unordered_set<string> result;
     for (auto &item : tagList) {

@@ -7,6 +7,12 @@
 #include "NaivePosTagger.h"
 #include "PosTaggedWord.h"
 
+/**
+ * Train method for the Naive pos tagger. The algorithm gets all possible tag list. Then counts all
+ * possible tags (with its counts) for each possible word.
+ *
+ * @param corpus Traning data for the tagger.
+ */
 void NaivePosTagger::train(PosTaggedCorpus& corpus) {
     map<string, CounterHashMap<string>> map;
     for (int i = 0; i < corpus.sentenceCount(); i++){
@@ -27,6 +33,13 @@ void NaivePosTagger::train(PosTaggedCorpus& corpus) {
     }
 }
 
+/**
+ * Test method for the Naive pos tagger. For each word, the method chooses the maximum a posterior tag from all
+ * possible tag list for that word.
+ *
+ * @param sentence Sentence to be tagged.
+ * @return Annotated (tagged) sentence.
+ */
 Sentence NaivePosTagger::posTag(Sentence& sentence) {
     Sentence result;
     for (int i = 0; i < sentence.wordCount(); i++){
@@ -56,6 +69,9 @@ NaivePosTagger::NaivePosTagger(ifstream &inputFile) {
     }
 }
 
+/**
+ * The method saves the pos tagger model.
+ */
 void NaivePosTagger::saveModel() {
     ofstream outputFile;
     outputFile.open("naivePosTagger.bin", ofstream::out);
