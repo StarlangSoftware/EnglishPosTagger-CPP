@@ -30,7 +30,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 A directory called EnglishPosTagger-CPP will be created. Or you can use below link for exploring the code:
 
-	git clone https://github.com/olcaytaner/EnglishPosTagger-CPP.git
+	git clone https://github.com/starlangsoftware/EnglishPosTagger-CPP.git
 
 ## Open project with CLion IDE
 
