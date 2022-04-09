@@ -1,4 +1,4 @@
-Pos Tagging [<img src="https://github.com/StarlangSoftware/EnglishPosTagger/blob/master/video1.jpg" width="5%">](https://youtu.be/gQmc7Nhwhuk)
+Pos Tagging [<img src="https://github.com/StarlangSoftware/EnglishPosTagger/blob/master/video1.jpg" width="5%">](https://youtu.be/gQmc7Nhwhuk)[<img src="https://github.com/StarlangSoftware/EnglishPosTagger/blob/master/video2.jpg" width="5%">](https://youtu.be/GHUib73MRks)
 ============
 
 This is a tool meant for tagging words with their part-of-speech, a grammatical category based on their function within a sentence, such as noun, adjective, verb, and so forth. 
