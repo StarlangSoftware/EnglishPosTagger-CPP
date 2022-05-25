@@ -19,7 +19,7 @@ void NaivePosTagger::train(PosTaggedCorpus& corpus) {
         Sentence* s = corpus.getSentence(i);
         for (int j = 0; j < s->wordCount(); j++){
             auto word = (PosTaggedWord*) (corpus.getSentence(i)->getWord(j));
-            if (map.find(word->getName()) != map.end()){
+            if (map.contains(word->getName())){
                 map.find(word->getName())->second.put(word->getTag());
             } else {
                 CounterHashMap<string> counterMap;
