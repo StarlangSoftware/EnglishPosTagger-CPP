@@ -3,8 +3,8 @@
 //
 
 #include "catch.hpp"
-#include "../HmmPosTagger.h"
-#include "../PosTaggedWord.h"
+#include "../src/HmmPosTagger.h"
+#include "../src/PosTaggedWord.h"
 
 TEST_CASE("HmmPosTaggerTest-testPosTag") {
     HmmPosTagger posTagger = HmmPosTagger();

@@ -3,8 +3,8 @@
 //
 
 #include "catch.hpp"
-#include "../NaivePosTagger.h"
-#include "../PosTaggedWord.h"
+#include "../src/NaivePosTagger.h"
+#include "../src/PosTaggedWord.h"
 
 TEST_CASE("NaivePosTaggerTest-testPosTag") {
     NaivePosTagger posTagger = NaivePosTagger();

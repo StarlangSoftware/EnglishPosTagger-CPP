@@ -1,0 +1,6 @@
+[requires]
+Corpus/1.0.0
+Hmm/1.0.0
+
+[generators]
+cmake
