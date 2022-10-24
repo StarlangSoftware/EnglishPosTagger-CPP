@@ -10,8 +10,8 @@ class PosTaggedWord : public Word {
 private:
     string tag;
 public:
-    PosTaggedWord(string name, string tag);
-    string getTag();
+    PosTaggedWord(const string& name, const string& tag);
+    string getTag() const;
 };
 
 

@@ -14,8 +14,8 @@ private:
 public:
     PosTaggedCorpus();
     PosTaggedCorpus emptyCopy();
-    explicit PosTaggedCorpus(string fileName);
-    unordered_set<string> getTagList();
+    explicit PosTaggedCorpus(const string& fileName);
+    unordered_set<string> getTagList() const;
 };
 
 

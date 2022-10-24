@@ -12,7 +12,7 @@
  *
  * @param corpus Traning data for the tagger.
  */
-void HmmPosTagger::train(PosTaggedCorpus& corpus) {
+void HmmPosTagger::train(const PosTaggedCorpus& corpus) {
     int sentenceCount = corpus.sentenceCount();
     auto* emittedSymbols = new vector<string>[sentenceCount];
     auto* allWords = new vector<Word>[sentenceCount];

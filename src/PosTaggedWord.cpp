@@ -9,8 +9,8 @@
  * @param name Name of the word
  * @param tag Tag of the word
  */
-PosTaggedWord::PosTaggedWord(string name, string tag) : Word(move(name)){
-    this->tag = move(tag);
+PosTaggedWord::PosTaggedWord(const string& name, const string& tag) : Word(name){
+    this->tag = tag;
 }
 
 /**
@@ -18,6 +18,6 @@ PosTaggedWord::PosTaggedWord(string name, string tag) : Word(move(name)){
  *
  * @return Tag of the word.
  */
-string PosTaggedWord::getTag() {
+string PosTaggedWord::getTag() const{
     return tag;
 }

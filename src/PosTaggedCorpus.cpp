@@ -31,12 +31,12 @@ PosTaggedCorpus PosTaggedCorpus::emptyCopy() {
  *
  * @param fileName Name of the corpus file.
  */
-PosTaggedCorpus::PosTaggedCorpus(string fileName) {
+PosTaggedCorpus::PosTaggedCorpus(const string& fileName) {
     string line, name, tag, shortTag;
-    Sentence* newSentence = new Sentence();
+    auto* newSentence = new Sentence();
     ifstream inputStream;
     inputStream.open(fileName, ifstream::in);
-    this->fileName = move(fileName);
+    this->fileName = fileName;
     while (inputStream.good()){
         getline(inputStream, line);
         vector<string> tokens = Word::split(line, " \t");
@@ -51,7 +51,7 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
                         shortTag = tag;
                     }
                     tagList.put(shortTag);
-                    PosTaggedWord* newWord = new PosTaggedWord(name, shortTag);
+                    auto* newWord = new PosTaggedWord(name, shortTag);
                     newSentence->addWord(newWord);
                     if (tag == "."){
                         addSentence(newSentence);
@@ -73,7 +73,7 @@ PosTaggedCorpus::PosTaggedCorpus(string fileName) {
  *
  * @return Set of all possible tags.
  */
-unordered_set<string> PosTaggedCorpus::getTagList() {
+unordered_set<string> PosTaggedCorpus::getTagList() const{
     unordered_set<string> result;
     for (auto &item : tagList) {
         result.emplace(item.first);

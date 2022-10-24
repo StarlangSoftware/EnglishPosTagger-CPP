@@ -11,7 +11,7 @@
  *
  * @param corpus Traning data for the tagger.
  */
-void DummyPosTagger::train(PosTaggedCorpus& corpus) {
+void DummyPosTagger::train(const PosTaggedCorpus& corpus) {
     unordered_set<string> corpusTagList = corpus.getTagList();
     for (const auto& tag : corpusTagList){
         tagList.emplace_back(tag);

@@ -14,7 +14,7 @@ private:
 public:
     DummyPosTagger() = default;
     explicit DummyPosTagger(ifstream& inputFile);
-    void train(PosTaggedCorpus& corpus) override;
+    void train(const PosTaggedCorpus& corpus) override;
     Sentence posTag(Sentence& sentence) override;
     void serialize(ostream& outputFile) override;
     void saveModel() override;
