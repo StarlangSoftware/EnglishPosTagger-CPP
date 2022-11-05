@@ -14,11 +14,8 @@ private:
     Hmm1<string, Word> hmm;
 public:
     HmmPosTagger() = default;
-    explicit HmmPosTagger(ifstream& inputFile);
     void train(const PosTaggedCorpus& corpus) override;
     Sentence posTag(Sentence& sentence) override;
-    void serialize(ostream& outputFile) override;
-    void saveModel() override;
 };
 
 

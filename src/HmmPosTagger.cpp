@@ -41,21 +41,3 @@ Sentence HmmPosTagger::posTag(Sentence& sentence) {
     }
     return result;
 }
-
-void HmmPosTagger::serialize(ostream &outputFile) {
-    hmm.serialize(outputFile);
-}
-
-HmmPosTagger::HmmPosTagger(ifstream &inputFile) {
-    hmm = Hmm1<string, Word>(inputFile);
-}
-
-/**
- * The method saves the pos tagger model.
- */
-void HmmPosTagger::saveModel() {
-    ofstream outputFile;
-    outputFile.open("hmmPosTagger.bin", ofstream::out);
-    serialize(outputFile);
-    outputFile.close();
-}

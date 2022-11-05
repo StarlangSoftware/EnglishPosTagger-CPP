@@ -11,8 +11,6 @@ class PosTagger{
 public:
     virtual void train(const PosTaggedCorpus& corpus) = 0;
     virtual Sentence posTag(Sentence& sentence) = 0;
-    virtual void serialize(ostream& outputFile) = 0;
-    virtual void saveModel() = 0;
 };
 
 #endif //POSTAGGER_POSTAGGER_H

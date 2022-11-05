@@ -48,16 +48,6 @@ Sentence NaivePosTagger::posTag(Sentence& sentence) {
     return result;
 }
 
-void NaivePosTagger::serialize(ostream &outputFile) {
-    outputFile << maxMap.size() << "\n";
-    for (auto& iterator : maxMap){
-        if (!iterator.first.empty() && !iterator.second.empty()){
-            outputFile << iterator.first << "\n";
-            outputFile << iterator.second << "\n";
-        }
-    }
-}
-
 NaivePosTagger::NaivePosTagger(ifstream &inputFile) {
     int size;
     string name, tag;
@@ -67,14 +57,4 @@ NaivePosTagger::NaivePosTagger(ifstream &inputFile) {
         inputFile >> tag;
         maxMap.insert_or_assign(name, tag);
     }
-}
-
-/**
- * The method saves the pos tagger model.
- */
-void NaivePosTagger::saveModel() {
-    ofstream outputFile;
-    outputFile.open("naivePosTagger.bin", ofstream::out);
-    serialize(outputFile);
-    outputFile.close();
 }

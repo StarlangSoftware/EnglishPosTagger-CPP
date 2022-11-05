@@ -34,13 +34,6 @@ Sentence DummyPosTagger::posTag(Sentence& sentence) {
     return result;
 }
 
-void DummyPosTagger::serialize(ostream &outputFile) {
-    outputFile << tagList.size() << "\n";
-    for (const string &tag : tagList){
-        outputFile << tag << "\n";
-    }
-}
-
 DummyPosTagger::DummyPosTagger(ifstream &inputFile) {
     int size;
     string tag;
@@ -50,14 +43,4 @@ DummyPosTagger::DummyPosTagger(ifstream &inputFile) {
         inputFile >> tag;
         tagList.emplace_back(tag);
     }
-}
-
-/**
- * The method saves the pos tagger model.
- */
-void DummyPosTagger::saveModel() {
-    ofstream outputFile;
-    outputFile.open("dummyPosTagger.bin", ofstream::out);
-    serialize(outputFile);
-    outputFile.close();
 }
