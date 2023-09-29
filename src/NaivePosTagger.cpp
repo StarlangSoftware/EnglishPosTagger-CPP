@@ -11,14 +11,14 @@
  * Train method for the Naive pos tagger. The algorithm gets all possible tag list. Then counts all
  * possible tags (with its counts) for each possible word.
  *
- * @param corpus Traning data for the tagger.
+ * @param corpus Training data for the tagger.
  */
 void NaivePosTagger::train(const PosTaggedCorpus& corpus) {
     map<string, CounterHashMap<string>> map;
     for (int i = 0; i < corpus.sentenceCount(); i++){
         Sentence* s = corpus.getSentence(i);
         for (int j = 0; j < s->wordCount(); j++){
-            auto word = (PosTaggedWord*) (corpus.getSentence(i)->getWord(j));
+            auto word = (PosTaggedWord*) (s->getWord(j));
             if (map.contains(word->getName())){
                 map.find(word->getName())->second.put(word->getTag());
             } else {
