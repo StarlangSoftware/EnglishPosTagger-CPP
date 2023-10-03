@@ -10,23 +10,23 @@
 #include "Dictionary/Word.h"
 
 /**
- * A constructor of {@link PosTaggedCorpus} which initializes the sentences of the corpus, the word list of
+ * A constructor of PosTaggedCorpus which initializes the sentences of the corpus, the word list of
  * the corpus, and all possible tags.
  */
 PosTaggedCorpus::PosTaggedCorpus() {
 }
 
 /**
- * A clone method for the {@link PosTaggedCorpus} class.
+ * A clone method for the PosTaggedCorpus class.
  *
- * @return A copy of the current {@link PosTaggedCorpus} class.
+ * @return A copy of the current PosTaggedCorpus class.
  */
 PosTaggedCorpus PosTaggedCorpus::emptyCopy() {
     return PosTaggedCorpus();
 }
 
 /**
- * Another constructor of {@link PosTaggedCorpus} which takes a fileName of the corpus as an input, reads the
+ * Another constructor of PosTaggedCorpus which takes a fileName of the corpus as an input, reads the
  * corpus from that file.
  *
  * @param fileName Name of the corpus file.

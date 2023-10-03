@@ -5,7 +5,7 @@
 #include "PosTaggedWord.h"
 
 /**
- * A constructor of {@link PosTaggedWord} which takes name and tag as input and sets the corresponding attributes
+ * A constructor of PosTaggedWord which takes name and tag as input and sets the corresponding attributes
  * @param name Name of the word
  * @param tag Tag of the word
  */
