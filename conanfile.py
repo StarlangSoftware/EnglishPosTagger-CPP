@@ -8,7 +8,12 @@ from conan.tools.files import copy
 class PosTaggerConan(ConanFile):
     name = "pos_tagger"
     version = "1.0.0"
-    requires = ["corpus/1.0.0", "hmm/1.0.0", "dictionary/1.0.0", "data_structure/1.0.0", "math/1.0.0"]
+    requires = ["corpus/1.0.0",
+                "hmm/1.0.0",
+                "dictionary/1.0.0",
+                "data_structure/1.0.0",
+                "math/1.0.0",
+                "util/1.0.0"]
     license = "GPL License"
     author = "Olcay Taner Yildiz olcay.yildiz@ozyegin.edu.tr"
     url = "https://github.com/StarlangSoftware/EnglishPosTagger-CPP"

@@ -7,7 +7,7 @@
 #include <sstream>
 #include "PosTaggedCorpus.h"
 #include "PosTaggedWord.h"
-#include "Dictionary/Word.h"
+#include "StringUtils.h"
 
 /**
  * A constructor of PosTaggedCorpus which initializes the sentences of the corpus, the word list of
@@ -39,7 +39,7 @@ PosTaggedCorpus::PosTaggedCorpus(const string& fileName) {
     this->fileName = fileName;
     while (inputStream.good()){
         getline(inputStream, line);
-        vector<string> tokens = Word::split(line, " \t");
+        vector<string> tokens = StringUtils::split(line, " \t");
         for (const string& word : tokens){
             if (!word.empty()){
                 if (word.find_first_of('/') != -1){
