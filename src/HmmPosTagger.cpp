@@ -20,7 +20,7 @@ void HmmPosTagger::train(const PosTaggedCorpus& corpus) {
         Sentence *sentence = corpus.getSentence(i);
         for (int j = 0; j < sentence->wordCount(); j++){
             auto * word = (PosTaggedWord*) (sentence->getWord(j));
-            allWords[i].emplace_back(Word(word->getName()));
+            allWords[i].emplace_back(word->getName());
             emittedSymbols[i].emplace_back(word->getTag());
         }
     }

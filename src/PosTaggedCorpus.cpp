@@ -6,6 +6,9 @@
 #include <iostream>
 #include <sstream>
 #include "PosTaggedCorpus.h"
+
+#include <unordered_set>
+
 #include "PosTaggedWord.h"
 #include "StringUtils.h"
 
@@ -13,8 +16,7 @@
  * A constructor of PosTaggedCorpus which initializes the sentences of the corpus, the word list of
  * the corpus, and all possible tags.
  */
-PosTaggedCorpus::PosTaggedCorpus() {
-}
+PosTaggedCorpus::PosTaggedCorpus() = default;
 
 /**
  * A clone method for the PosTaggedCorpus class.

@@ -3,7 +3,6 @@
 //
 
 #include <fstream>
-#include <iostream>
 #include "NaivePosTagger.h"
 #include "PosTaggedWord.h"
 

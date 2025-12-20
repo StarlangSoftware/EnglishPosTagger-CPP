@@ -4,6 +4,8 @@
 
 #include <fstream>
 #include "DummyPosTagger.h"
+
+#include <unordered_set>
 #include "PosTaggedWord.h"
 
 /**

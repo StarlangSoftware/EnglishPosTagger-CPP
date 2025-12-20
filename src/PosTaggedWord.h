@@ -11,7 +11,7 @@ private:
     string tag;
 public:
     PosTaggedWord(const string& name, const string& tag);
-    string getTag() const;
+    [[nodiscard]] string getTag() const;
 };
 
 

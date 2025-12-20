@@ -7,6 +7,7 @@
 
 #include <CounterHashMap.h>
 #include <Corpus.h>
+#include <unordered_set>
 
 class PosTaggedCorpus : public Corpus {
 private:
@@ -15,7 +16,7 @@ public:
     PosTaggedCorpus();
     PosTaggedCorpus emptyCopy();
     explicit PosTaggedCorpus(const string& fileName);
-    unordered_set<string> getTagList() const;
+    [[nodiscard]] unordered_set<string> getTagList() const;
 };
 
 
